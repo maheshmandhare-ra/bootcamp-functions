@@ -29,6 +29,7 @@ jobs:
         # Each environment should have a corresponding github environment with secrets.
         environment:
           - test
+          - prod
 
     environment: ${{ matrix.environment }}
 
@@ -46,7 +47,7 @@ jobs:
         if: ${{ contains(needs.generate-matrix.outputs.deploy_folders, matrix.function) }}
         run: |
           sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64
-          sudo chmod +x /usr/local/bin/yq
+          sudo chmod +x /usr/local/bin/yq/home/user/workspace/bootcamp-functions/execute_rest_extractor/function_config_prod.yaml
 
       - name: Extract config file parameters
         if: ${{ contains(needs.generate-matrix.outputs.deploy_folders, matrix.function) }}
